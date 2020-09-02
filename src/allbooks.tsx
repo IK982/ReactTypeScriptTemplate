@@ -1,14 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import './App.scss';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useLocation
-} from "react-router-dom";
-import { Interface } from 'readline';
-
 
 interface Book {
   title: string;
@@ -17,41 +8,27 @@ interface Book {
 
 
 export function AllBooks() {
-  const [books, setBooks] = useState<Book[]>([])
-  const [search, setSearch] = useState("")
+  const [books, setBooks] = useState<Book[]>([]);
+  const [search, setSearch] = useState("");
+  const [mode, setMode] = useState("Loading")
 
   useEffect(() => {
+    setMode("Loading")
     fetch(`http://localhost:3001/books?search=${search}`)
       .then(response => response.json())
       .then(json => setBooks(json.books))
-
+      .then(() => { setMode("Ready") })
   }, [search]);
 
 
-  if (books.length === 0) {
-    return <div>Loading</div>
-  }
-  const bookList = books.map((book ) => {
-    return <BookListItem book={book}></BookListItem>
-    
-  })
-
-  // const updateSearch = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const newSearch = event.target.value
-  //   setSearch(newSearch);
-
-  // }
   return (
     <div>
-      <h2>All Books</h2>
+      <h1>All Books</h1>
       <label>
-        <input type="text" value={search} onChange= {(event) => { setSearch(event.target.value)}}/>
-        {/* // onChange= {updateSearch} */}
-        
+        <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} />
       </label>
-      <ul>
-        {bookList}
-      </ul>
+      {mode === "Ready" && <SearchResults books={books}></SearchResults>}
+      {mode === "Loading" && <p>Loading</p>}
     </div>
   );
 }
@@ -59,10 +36,38 @@ export function AllBooks() {
 interface BookProps {
   book: Book;
 }
-const BookListItem = ({book}: BookProps) => {
+const BookListItem = ({ book }: BookProps) => {
   return <li>{book.author}, {book.title}</li>
 
+};
+
+interface SearchResultProps {
+  books: Book[];
 }
+
+function SearchResults({books}: SearchResultProps) {
+  const bookList = books.map((book) => {
+    return <BookListItem book={book}></BookListItem>
+
+  })
+  if (books.length === 0) {
+    return (
+      <p>No Results</p>
+    )
+  }
+  return (
+    <section>
+
+      <h2>All Books</h2>
+      <ul>
+        {bookList}
+      </ul>
+    </section>
+
+  )
+}
+
+
 
 
 
