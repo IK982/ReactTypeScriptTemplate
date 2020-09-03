@@ -36,6 +36,9 @@ function App() {
                                 <Link to="/books">All Books</Link>
                             </li>
                             <li className="li">
+                                <Link to="/books/add-book">Add Books</Link>
+                            </li>
+                            <li className="li">
                                 <Link to="/members/1">Member</Link>
                             </li>
                             <li className="li">
@@ -46,6 +49,9 @@ function App() {
                 </div>
                 <Switch>
                     <Route path="/books/:id">
+                        <BookInformation />
+                    </Route>
+                    <Route path="/books/add-book">
                         <BookInformation />
                     </Route>
                     <Route path="/books">

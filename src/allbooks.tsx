@@ -7,6 +7,12 @@ interface Book {
   author: string
 }
 
+interface SearchResultProps {
+  books: Book[];
+}
+interface BookProps {
+  book: Book;
+}
 
 export function AllBooks() {
   const [books, setBooks] = useState<Book[]>([]);
@@ -25,42 +31,34 @@ export function AllBooks() {
   return (
     <div>
       <h1>All Books</h1>
+      <button ><a href = "http://localhost:3000/books/add-books">Add Books</a></button><br></br><br></br>
       <label>
         <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} />
-      </label>
+      </label><br></br>
+      
       {mode === "Ready" && <SearchResults books={books}></SearchResults>}
       {mode === "Loading" && <p>Loading</p>}
     </div>
   );
 }
 
-interface BookProps {
-  book: Book;
-
-}
 const BookListItem = ({ book }: BookProps) => {
   return <li > <a href ={`http://localhost:3000/books/${book.id}`}>{book.author},{book.title}</a></li>
 
 };
 
-interface SearchResultProps {
-  books: Book[];
-}
-
 function SearchResults({books}: SearchResultProps) {
   const bookList = books.map((book) => {
-    return <BookListItem book={book}></BookListItem>
-
+    return <BookListItem book={book}></BookListItem> 
   })
+
   if (books.length === 0) {
     return (
       <p>No Results</p>
     )
   }
   return (
-    <section>
-
-      <h2>All Books</h2>
+    <section><br></br>
       <ul>
         {bookList}
       </ul>
