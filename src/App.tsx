@@ -17,6 +17,11 @@ function App() {
     return (
 
         <Router>
+            <header className="App-header">
+                <img src="https://images.unsplash.com/photo-1509291985095-788b32582a81?ixlib=rb-1.2&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80" className="App-logo" alt="logo" />
+                {/* <a className="App-link"></a> */}
+
+            </header>
             <div>
                 <div className="div">
                     <nav className="ul">
@@ -57,11 +62,7 @@ function App() {
                     </Route>
 
                 </Switch>
-                <header>
-                    <img src="https://images.unsplash.com/photo-1509291985095-788b32582a81?ixlib=rb-1.2&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80" className="App-logo" alt="logo" />
-                    <a className="App-link"></a>
 
-                </header>
                 <footer>app built by India and Humphrey</footer>
 
             </div>
