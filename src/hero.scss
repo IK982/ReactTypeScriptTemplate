@@ -13,34 +13,45 @@ div {
   
 }
 //remove bullet points
-  ul {
-    list-style-type: none;
+.nav-bar {
+    
     margin: 0;
     padding: 0;
     background-color: #333;
-    display: flex;
     position: sticky;
 
   
   }
 
-  li {
+  .links {
     float: none;
     text-align: center;
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    background-color: #333;
     
-   
   }
-
-  li a {
+  
+  .nav-link {
     display: block;
     color: rgb(218, 85, 24);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    background-color: #333;
+
   }
+
+  // link a{
+  //   display: block;
+  //   color: rgb(218, 85, 24);
+  //   text-align: center;
+  //   padding: 14px 16px;
+  //   text-decoration: none;
+  //   background-color: #333;
+  // }
   
-  li a:hover:not(.active) {
+  a:hover:not(.active) {
     background-color: #111;
   }
   

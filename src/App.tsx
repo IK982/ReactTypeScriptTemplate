@@ -25,24 +25,24 @@ function App() {
             </header>
             <div>
                 <div className="div">
-                    <nav className="ul">
-                        <ul className="ul">
-                            <li className="li">
+                    <nav className="nav-bar">
+                        <ul className="links">
+                            <li >
                                 <Link to="/">Home</Link>
                             </li>
-                            <li className="li">
+                            <li >
                                 <Link to="/books/1">Book</Link>
                             </li>
-                            <li className="li">
+                            <li >
                                 <Link to="/books">All Books</Link>
                             </li>
-                            <li className="li">
+                            <li >
                                 <Link to="/books/add-book">Add Books</Link>
                             </li>
-                            <li className="li">
+                            <li >
                                 <Link to="/members/1">Member</Link>
                             </li>
-                            <li className="li">
+                            <li >
                                 <Link to="/members">All Members</Link>
                             </li>
                         </ul>
