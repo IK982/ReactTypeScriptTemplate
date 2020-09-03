@@ -1,7 +1,8 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect} from 'react';
 import './App.scss';
 
 interface Book {
+  id: number;
   title: string;
   author: string
 }
@@ -35,9 +36,10 @@ export function AllBooks() {
 
 interface BookProps {
   book: Book;
+
 }
 const BookListItem = ({ book }: BookProps) => {
-  return <li>{book.author}, {book.title}</li>
+  return <li > <a href ={`http://localhost:3000/books/${book.id}`}>{book.author},{book.title}</a></li>
 
 };
 
@@ -69,38 +71,3 @@ function SearchResults({books}: SearchResultProps) {
 
 
 
-
-
-
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search);
-// }
-// function QuerySearch() {
-//   let query = useQuery();
-//   return
-// }
-// function SearchBook() {
-//   const [searchTerm, setSearchTerm] =useState("");
-//   const [searchResults, setSearchResults] = useState([]);
-//   const handleChange = event => { setSearchTerm(event.target.value);
-//   };
-//   useEffect(()=> {
-//     const results = BookListItem.filter(booksearch => booksearch.toLowerCase().includes(searchTerm)
-//     );
-//     setSearchTerm(results);
-//   } , [searchTerm]);
-//   return (
-//     <div>
-//       <input 
-//       type="text"
-//       placeholder="Search"
-//       value={searchTerm}
-//       onChange={handleChange}/>
-//     <ul>
-//     {searchResults.map(item => (
-//       <li>{item}</li>
-//     ))}
-//     </ul>
-//     </div>
-//   )
-// }

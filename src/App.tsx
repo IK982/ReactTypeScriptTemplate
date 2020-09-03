@@ -8,9 +8,9 @@ import {
     Link
 } from "react-router-dom";
 import { Home } from './home';
-import { Book, BookId } from './books';
+import { BookInformation } from './books';
 import { AllBooks } from './allbooks';
-import { Member, MemberId } from './member';
+import { MemberId } from './member';
 import { AllMembers } from './allmembers';
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
                 </div>
                 <Switch>
                     <Route path="/books/:id">
-                        <BookId />
+                        <BookInformation />
                     </Route>
                     <Route path="/books">
                         <AllBooks />
