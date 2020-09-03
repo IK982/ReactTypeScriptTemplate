@@ -12,6 +12,7 @@ import { BookInformation } from './books';
 import { AllBooks } from './allbooks';
 import { MemberId } from './member';
 import { AllMembers } from './allmembers';
+import {AddNewBook} from './AddBook';
 
 function App() {
     return (
@@ -48,10 +49,10 @@ function App() {
                     </nav>
                 </div>
                 <Switch>
-                    <Route path="/books/:id">
-                        <BookInformation />
-                    </Route>
                     <Route path="/books/add-book">
+                        <AddNewBook />
+                    </Route>
+                    <Route path="/books/:id">
                         <BookInformation />
                     </Route>
                     <Route path="/books">
