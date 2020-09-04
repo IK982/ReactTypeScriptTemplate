@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './App.scss';
+import './hero.scss';
 
 interface Book {
   id: number;
@@ -29,9 +30,9 @@ export function AllBooks() {
 
 
   return (
-    <div>
+    <div className="center">
       <h1>All Books</h1>
-      <button ><a href = "http://localhost:3000/books/add-books">Add Books</a></button><br></br><br></br>
+      <button ><a className="book-link" href = "http://localhost:3000/books/add-books">Add Books</a></button><br></br><br></br>
       <label>
         <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} />
       </label><br></br>
@@ -43,7 +44,7 @@ export function AllBooks() {
 }
 
 const BookListItem = ({ book }: BookProps) => {
-  return <li > <a href ={`http://localhost:3000/books/${book.id}`}>{book.author},{book.title}</a></li>
+  return <li className="padding"> <a className="book-link" href ={`http://localhost:3000/books/${book.id}`}>{book.author},{book.title}</a></li>
 
 };
 
@@ -59,7 +60,7 @@ function SearchResults({books}: SearchResultProps) {
   }
   return (
     <section><br></br>
-      <ul>
+      <ul className="ul">
         {bookList}
       </ul>
     </section>

@@ -13,6 +13,7 @@ import { AllBooks } from './allbooks';
 import { MemberId } from './member';
 import { AllMembers } from './allmembers';
 import {AddNewBook} from './AddBook';
+import {AddNewMember} from './AddMember';
 
 function App() {
     return (
@@ -28,22 +29,25 @@ function App() {
                     <nav className="nav-bar">
                         <ul className="links">
                             <li >
-                                <Link to="/">Home</Link>
+                                <Link className="nav-link" to="/">Home</Link>
                             </li>
                             <li >
-                                <Link to="/books/1">Book</Link>
+                                <Link className="nav-link" to="/books/1">Book</Link>
                             </li>
                             <li >
-                                <Link to="/books">All Books</Link>
+                                <Link className="nav-link" to="/books">All Books</Link>
                             </li>
                             <li >
-                                <Link to="/books/add-book">Add Books</Link>
+                                <Link className="nav-link" to="/books/add-book">Add Books</Link>
                             </li>
                             <li >
-                                <Link to="/members/1">Member</Link>
+                                <Link className="nav-link" to="/members/1">Member</Link>
                             </li>
                             <li >
-                                <Link to="/members">All Members</Link>
+                                <Link className="nav-link" to="/members">All Members</Link>
+                            </li>
+                            <li >
+                                <Link className="nav-link" to="/members/add-member">Add Members</Link>
                             </li>
                         </ul>
                     </nav>
@@ -58,6 +62,9 @@ function App() {
                     <Route path="/books">
                         <AllBooks />
                     </Route>
+                    <Route path="/members/add-member">
+                        <AddNewMember />
+                    </Route>
                     <Route path="/members/:id">
                         <MemberId />
                     </Route>
@@ -70,7 +77,10 @@ function App() {
 
                 </Switch>
 
-                <footer>app built by India and Humphrey</footer>
+                <div className="footer">
+                <footer className="footer-text">app built by India and Humphrey</footer>
+                </div>
+
 
             </div>
         </Router>

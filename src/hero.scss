@@ -17,9 +17,7 @@ div {
     
     margin: 0;
     padding: 0;
-    background-color: #333;
     position: sticky;
-
   
   }
 
@@ -40,21 +38,86 @@ div {
     padding: 14px 16px;
     text-decoration: none;
 
+
+    &:hover:not(.active) {
+      background-color: #111;
+    }
   }
 
-  // link a{
-  //   display: block;
-  //   color: rgb(218, 85, 24);
-  //   text-align: center;
-  //   padding: 14px 16px;
-  //   text-decoration: none;
-  //   background-color: #333;
-  // }
-  
-  a:hover:not(.active) {
-    background-color: #111;
-  }
   
   .active {
     background-color: #549ab6;
   }
+
+  /* ============ LIST OF BOOKS ============== */
+  
+.book-link {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  color: black;
+  
+
+  }
+  .ul {
+    list-style-type: none;
+  }
+
+  .center{
+    text-align: center;
+    
+  }
+  .a:link{
+    color: black;
+  }
+
+  .padding{
+    padding:20px;
+
+  }
+ /* ============ FOOTER ============== */
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  text-align: center;
+  margin-top: 200px;
+}
+
+ .footer-text {
+  color: rgb(218, 85, 24);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+ }
+
+
+/* ============ SLIDER ============== */
+
+ .size{
+  height: 250px;
+  width: 200px;
+  padding :50px;
+  
+}
+
+.container {
+  height: 300px;
+  width: 100%;
+  border: solid 1px white;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+img {
+  white-space: nowrap;
+}
+h1.text-style {
+  text-align: center;
+  font-weight: lighter; 
+  padding-top: 60px;
+}

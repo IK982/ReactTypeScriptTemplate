@@ -1,14 +1,8 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
     useHistory
 } from "react-router-dom";
-
-
-
 
 
 export function AddNewBook() {
@@ -58,6 +52,7 @@ export function AddNewBook() {
     }
 
     return (
+
         <section>
             <form onSubmit={setSearch}>
                 <label htmlFor="isbn"> ISBN
@@ -78,9 +73,6 @@ export function AddNewBook() {
                 <label htmlFor="published_date"> Date Published
                     <input type="text" value={datepublished} onChange={event => setDatePublished(event.target.value)} />
                 </label>
-                {/* <label htmlFor="isbn"> ISBN
-                    <input type="text" value={isbn} onChange={event => setIsbn(event.target.value)} />
-                </label> */}
                 <label htmlFor="publisher"> Publisher
                     <input type="text" value={publisher} onChange={event => setPublisher(event.target.value)} />
                 </label>
@@ -92,3 +84,6 @@ export function AddNewBook() {
         </section>
     )
 }
+{/* <label htmlFor="isbn"> ISBN
+    <input type="text" value={isbn} onChange={event => setIsbn(event.target.value)} />
+</label> */}
