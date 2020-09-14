@@ -10,7 +10,7 @@ import {
 import { Home } from './home';
 import { BookInformation } from './books';
 import { AllBooks } from './allbooks';
-import { MemberId } from './member';
+import { MemberInformation } from './member';
 import { AllMembers } from './allmembers';
 import {AddNewBook} from './AddBook';
 import {AddNewMember} from './AddMember';
@@ -66,7 +66,7 @@ function App() {
                         <AddNewMember />
                     </Route>
                     <Route path="/members/:id">
-                        <MemberId />
+                        <MemberInformation />
                     </Route>
                     <Route path="/members">
                         <AllMembers />

@@ -37,7 +37,7 @@ export function AddNewBook() {
             .then(() => { history.push("/books") })
 
     }
-    const setSearch = (event : FormEvent) => {
+    const setSearch = (event: FormEvent) => {
         event.preventDefault();
 
         fetch(`http://localhost:3001/books/by-isbn/${isbn}`)
@@ -54,32 +54,36 @@ export function AddNewBook() {
     return (
 
         <section>
+            <h1>Add Book by ISBN Number</h1>
             <form onSubmit={setSearch}>
                 <label htmlFor="isbn"> ISBN
                     <input type="text" value={isbn} onChange={event => setIsbn(event.target.value)} />
 
                 </label>
-                <button>Search</button>
+                <button>Search</button><br></br><br></br>
             </form>
 
-
+            <h2>Add Book Manually</h2>
             <form onSubmit={submitForm}>
+
+
                 <label htmlFor="title"> Title
                     <input type="text" value={title} onChange={event => setTitle(event.target.value)} />
-                </label>
+                </label><br></br>
                 <label htmlFor="author"> Author
                     <input type="text" value={author} onChange={event => setAuthor(event.target.value)} />
-                </label>
+                </label><br></br>
                 <label htmlFor="published_date"> Date Published
                     <input type="text" value={datepublished} onChange={event => setDatePublished(event.target.value)} />
-                </label>
+                </label><br></br>
                 <label htmlFor="publisher"> Publisher
                     <input type="text" value={publisher} onChange={event => setPublisher(event.target.value)} />
-                </label>
+                </label><br></br>
                 <label htmlFor="cover_image_url"> Cover Image Url
                     <input type="text" value={coverimage} onChange={event => setCoverImage(event.target.value)} />
-                </label>
+                </label><br></br>
                 <button type="submit">Submit</button>
+
             </form>
         </section>
     )

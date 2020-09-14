@@ -9,10 +9,11 @@ import {
 
 
 interface Member {
+  id: number;
   name: string;
   email: string;
 }
-interface MemberProps{
+interface MemberProps {
   member: Member;
 }
 interface SearchResultProps {
@@ -22,38 +23,55 @@ interface SearchResultProps {
 export function AllMembers() {
   const [members, setMembers] = useState<Member[]>([]);
   const [search, setSearch] = useState("");
+  const [mode, setMode] = useState("Loading")
 
   useEffect(() => {
-    fetch("http://localhost:3001/members")
-    .then(response => response.json())
-    .then(json => setMembers(json.members))
-  }, [])
+    setMode("Loading")
+    fetch(`http://localhost:3001/members?search=${search}`)
+      .then(response => response.json())
+      .then(json => setMembers(json.members))
+      .then(() => { setMode("Ready") })
+  }, [search]);
 
+  return (
+    <div className="center">
+      <h1>All Members</h1>
+      <button ><a className="book-link" href="http://localhost:3000/members/add-member">Add Members</a></button><br></br><br></br>
+      <label>
+        <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} />
+      </label><br></br>
 
-  if (members.length === 0) {
-    return <div>No Members</div>
-  }
+      {mode === "Ready" && <SearchResults members={members}></SearchResults>}
+      {mode === "Loading" && <p>Loading...</p>}
+
+    </div>
+  );
+}
+const MemberItem = ({ member }: MemberProps) => {
+  return <li className="padding"><a className="book-link" href={`http://localhost:3000/members/${member.id}`}>{member.name}, {member.email}</a></li>
+};
+
+function SearchResults({ members }: SearchResultProps) {
   const memberList = members.map((member) => {
     return <MemberItem member={member}></MemberItem>
   })
+  if (members.length === 0) {
     return (
-      <div>
-        <h2>All Members</h2>
-        <button ><a className="book-link" href = "http://localhost:3000/members/add-member">Add Members</a></button><br></br><br></br>
-        <label>
-        <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} />
-      </label><br></br>
-        <ul>
-          {memberList}
-        </ul>
-      </div>
-    );
+      <div>No Members</div>
+    )
   }
-
-
-
-const MemberItem = ({member}: MemberProps) => {
-return <li>{member.name}, {member.email}</li>
+  return (
+    <div>
+      <ul className="ul">
+        {memberList}
+      </ul>
+    </div>
+  );
 }
+
+
+
+
+
 
 
